@@ -10,7 +10,7 @@ const mongoose = require('mongoose');
 const app = express();
 app.use(cookieParser());
 
-const authRouter = require('./routes/project');
+const authRouter = require('./routes/auth');
 const projectRouter = require('./routes/project');
 
 // Body parser which renders JSON formatted responses
@@ -29,12 +29,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-app.get('/', (res) => {
+app.use('/api/v1/auth', authRouter);
+app.use('/api/v1/projects', projectRouter);
+
+app.get('/', (req, res) => {
   res.status(200).json({ message: 'Welcome!' });
 });
-
-app.use('/api/v1/auth', authRouter);
-app.use('/api/v1', projectRouter);
 
 // Database Configuration
 const url = 'mongodb://localhost:27017/contributetoit-api';
