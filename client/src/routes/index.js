@@ -1,5 +1,5 @@
 import Home from '../views/home';
-import Profile from '../views/profiles';
+import Profile from '../views/projects';
 
 const routes = [
   {
@@ -8,7 +8,7 @@ const routes = [
     component: Home,
   },
   {
-    path: '/profiles',
+    path: '/projects',
     exact: true,
     component: Profile,
   }
