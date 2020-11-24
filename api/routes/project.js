@@ -47,7 +47,7 @@ router.get('/', async (req, res) => {
       page: project.stack,
       msg: 'working',
     }));
-    res.status(200).json({ response });
+    res.status(200).json(response);
     console.log(response);
   } catch (error) {
     console.log(error);
